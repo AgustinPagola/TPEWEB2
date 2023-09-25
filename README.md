@@ -1,4 +1,4 @@
-Integrantes: Pagola Agustin, Gandolfo Agustin.
+Integrantes: Pagola Agustin(agustinpagola1234@gmail.com), Gandolfo Agustin(agustingandolfo00@gmail.com).
 
 Tematica: Venta de materiales de construccion.
 
