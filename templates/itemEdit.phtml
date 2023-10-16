@@ -1,0 +1,32 @@
+<?php require 'templates/header.phtml' ?>
+
+
+    <ul>
+        <li>Producto: <?= $product->producto ?></li>
+        <li>Unidades: <?= $product->unidades ?> Unidades</li>
+        <li>Cliente: <?= $product->nombre?> <?= $product->apellido?></li>
+        
+    </ul>
+
+    <form method="post" action="actualizarItem/<?= $product->idVenta ?><">
+    <select name="producto" id="producto">
+    <?php
+    foreach($products as $item):?>
+        <option value="<?= $item->idProducto ?>"><?= $item->producto?></option>
+        <?php endforeach?>
+    </select>
+    <label>Ingrese cuantas unidades</label>
+    <input type="number" name="unidades" id="unidades ">
+    </select>
+    <label>Ingrese un cliente</label>
+    <select name="cliente" id="cliente">
+    <?php
+    foreach($clients as $item):?>
+        <option value="<?= $item->id?>"><?= $item->nombre?> <?= $item->apellido?></option>
+        <?php endforeach?>
+
+    </select>
+    <button type="submit">Actualizar</button>
+    </form>
+
+<?php require 'templates/footer.phtml' ?>

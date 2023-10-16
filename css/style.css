@@ -1,0 +1,18 @@
+body {
+    background-color: #808080; /* Gris */
+}
+main{
+
+min-height: 700px;
+
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    color: rgb(83, 166, 194);
+}
+.tamañoFuente{
+    font-size: 30px;
+}

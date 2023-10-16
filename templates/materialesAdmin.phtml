@@ -1,54 +1,72 @@
 <?php require_once './templates/header.phtml'?>
-<h1>Lista de items</h1>
 
-<form method="post" action="add">
-    <label>Ingrese su producto</label>
-    <select name="producto" id="prodcuto">
-        <option value="bolsa de cemento">Bolsa de cemento</option>
-        <option value="pegamento para porcelanatto">Pegamento para porcelanatto</option>
-        <option value="lata de hidrofugo">Lata de hidrofugo</option>
-        <option value="bolsa de arena">Bolsa de arena</option>
-        <option value="ladrillos">Ladrillos</option>
+<h1>Lista de pedidos:</h1>
+
+<form class="form-control form-control-sm" method="post" action="add">
+    <label class="h5">Ingrese su producto</label>
+    <select name="producto" id="producto">
+        
+    <?php
+    foreach($productList as $item):?>
+        <option value="<?= $item->idProducto ?>"><?= $item->producto?></option>
+        <?php endforeach?>
     </select>
-    <label>Ingrese cuantas unidades</label>
+    <label class="h5">Ingrese cuantas unidades</label>
     <input type="number" name="unidades" id="unidades ">
     </select>
-    <label>Ingrese un cliente</label>
-    <select name="cliente" id="cliente">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-    </select>
-    <button type="submit">Agregar</button>
+    <label class="h5">Ingrese un cliente</label>
+    <select name="cliente" id="cliente" >
+    <?php
+    foreach($clientList as $item):?>
+        <option value="<?= $item->id?>"><?= $item->nombre?> <?= $item->apellido?></option>
+        <?php endforeach?>
+        </select>   
+
+    <button type="submit" class='btn btn-success  ml-auto'>Agregar</button>    
 </form>
-<table class="table table-dark">
+
+
+<form method="post" action="filtrar"  class="form-control form-control-sm">
+<label class="h5">Flitrar por</label>
+    <select name="filtroCliente" id="filtroCliente">
+    <option ></option>
+    <?php
+    foreach($clientList as $item):?>
+        <option value="<?= $item->id?>"><?= $item->nombre?> <?= $item->apellido?></option>
+        <?php endforeach?>
+
+    </select>
+    <button type="submit" class='btn btn-success ml-auto'>Filtrar </button>  
+</form>  
+
+
+
+
+
+<table class="table table-dark table-striped table-hover">
     <thead>
-        <th>Id</th>
         <th>Producto</th>
         <th>unidades</th>
         <th>Precio unitario</th>
         <th>Monto total</th>
         <th>Cliente</th>
+        <th></th>
+        <th></th>
     </thead>
 
     <?php
     foreach($list as $item):?>
+    
         <tbody>
             <tr>
-                <td><?= $item->id ?></td>
-                <td><?= $item->producto ?></td>
+                <td><a href="product    /<?= $item->idProducto?>"><?=  $item->producto?> </a></td>
                 <td><?= $item->unidades ?></td> 
-                <td><?= $item->	montoUnitario?></td> 
+                <td><?= $item->monto?></td> 
                 <td><?= $item->montoTotal?></td> 
-                <td><a href="client/"><?= $item->cliente ?></a></td> 
-                <td><a href="remove/<?= $item->id ?>" type="button" class='btn btn-danger ml-auto'>Borrar</a></td>
+                <td><a href="client/<?= $item->cliente ?>"><?= $item->nombre?> <?= $item->apellido?></a></td> 
+                <td><a href="remove/<?= $item->idVenta ?>" type="button" class='btn btn-danger ml-auto'>Borrar</a></td>
+                <td><a href="edit/<?= $item->idVenta ?>" type="button" class='btn btn-success ml-auto'>Editar</a></td>
+
             </tr>
         </tbody>
     <?php endforeach?>

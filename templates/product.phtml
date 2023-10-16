@@ -1,0 +1,12 @@
+<?php require 'templates/header.phtml' ?>
+
+
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-dark tamañoFuente"><span class="h3">Producto: <?= $producto->producto ?></span></li>
+        <li class="list-group-item list-group-item-dark tamañoFuente"><span class="h3">Producto:Monto: <?= $producto->monto ?></span></li>
+        <li class="list-group-item list-group-item-dark tamañoFuente"><span class="h3">Descripcion: <?= $producto->descripcion ?></span></li>
+        
+    </ul>
+    <a href="home/" class='btn btn-success ml-auto'type="button">Volver al inicio</a>
+    <a href="products/" class='btn btn-warning ml-auto' type="button">Ver todos los productos</a>
+<?php require 'templates/footer.phtml' ?>

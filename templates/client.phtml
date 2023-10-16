@@ -1,13 +1,12 @@
 <?php require 'templates/header.phtml' ?>
 
-<div>
-    <ul>
-        <li>Cliente: <?= $cliente->nombre ?></li>
-        <li>Apellido: <?= $cliente->apellido ?></li>
-        <li>Edad: <?= $cliente->edad ?></li>
-        
 
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-dark tamañoFuente" ><span class="h3">Cliente: <?= $cliente->nombre ?></span></li>
+        <li class="list-group-item list-group-item-dark tamañoFuente"><span class="h3">Apellido: <?= $cliente->apellido ?></span></li>
+        <li class="list-group-item list-group-item-dark tamañoFuente" ><span class="h3">Edad: <?= $cliente->edad ?></span></li>
         
     </ul>
-<div>
+    <a href="home/" class='btn btn-success ml-auto'type="button">Volver al inicio</a>
+    <a href="clients/" class='btn btn-warning ml-auto' type="button">Ver todos los clientes</a>
 <?php require 'templates/footer.phtml' ?>

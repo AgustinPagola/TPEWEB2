@@ -1,0 +1,22 @@
+<?php require 'templates/header.phtml' ?>
+
+    <ul>
+        <li>Producto: <?= $producto->producto ?></li>
+        <li>Precio: <?= $producto->monto ?> $</li>
+        <li>Descripcion: <?= $producto->descripcion?></li>
+        
+    </ul>
+    <form method="post" action="actualizarProducto/<?=$idProducto?><">
+    <label>Ingrese su producto</label>
+        <input type="text" name="producto" id="producto">
+    </select>
+    <label>Ingrese su precio</label>
+        <input type="text" name="precio" id="precio">
+    </select>
+    <label>Ingrese una descripcion</label>
+        <input type="text" name="descripcion" id="descripcion">
+    </select>
+    <button type="submit">Actualizar</button>
+</form>
+
+<?php require 'templates/footer.phtml' ?>

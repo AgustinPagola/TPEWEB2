@@ -1,0 +1,35 @@
+<?php require_once './templates/header.phtml'?>
+<h1>Nuestros productos son:</h1>
+<form method="post" action="addProduct" class="form-control form-control-sm">
+    <label class="h5">Ingrese su producto</label>
+        <input type="text" name="producto" id="producto" >
+    </select>
+    <label class="h5">Ingrese su precio</label>
+        <input type="number" name="precio" id="precio" >
+    </select>
+    <label class="h5">Ingrese una descripcion</label>
+        <input type="text" name="descripcion" id="descripcion"  >
+    </select>
+    <button type="submit" class='btn btn-success ml-auto'>Agregar</button>
+</form>
+<table class="table table-dark table-striped table-hover">
+    <thead>
+        <th>Producto</th>
+        <th>Precio</th>
+        <th>Descripcion</th>
+        <th></th>
+        <th></th>
+    </thead>
+    <?php
+    foreach($list as $item):?>
+    
+    <tbody>
+        <tr>
+            <td><?= $item->producto ?></td>
+            <td><?= $item->monto ?></td>
+            <td><?= $item->descripcion ?></td>
+            <td><a href="removeProduct/<?= $item->idProducto ?>" type="button" class='btn btn-danger ml-auto'>Borrar</a></td>
+            <td><a href="editProduct/<?= $item->idProducto ?>" type="button" class='btn btn-success ml-auto'>Editar</a></td>
+        </tr>
+    </tbody>
+<?php endforeach?>   

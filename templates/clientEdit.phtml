@@ -1,0 +1,23 @@
+<?php require_once './templates/header.phtml'?>
+
+<ul>
+        <li>Nombre: <?= $cliente->nombre ?></li>
+        <li>Apellido: <?= $cliente->apellido ?></li>
+        <li>Edad: <?= $cliente->edad?></li>
+        
+    </ul>
+    <form method="post" action="actualizarCliente/<?=$clienteId?>">
+    <label>Ingrese su nombre</label>
+        <input type="text" name="nombre" id="nombre">
+    </select>
+    <label>Ingrese su apellido</label>
+        <input type="text" name="apellido" id="apellido">
+    </select>
+    <label>Ingrese su edad</label>
+        <input type="text" name="edad" id="edad">
+    </select>
+    <button type="submit">Actualizar</button>
+</form>
+
+
+<?php require_once './templates/footer.phtml'?>

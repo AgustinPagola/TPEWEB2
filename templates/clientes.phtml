@@ -1,0 +1,23 @@
+<?php require_once './templates/header.phtml'?>
+<h1>Nuestros clientes son:</h1>
+<table class="table table-dark table-striped table-hover">
+    <thead>
+        <th>Nombre</th>
+        <th>apellido</th>
+        <th>edad</th>
+    </thead>
+    <?php
+    foreach($list as $item):?>
+    
+    <tbody>
+        <tr>
+            <td><?= $item->nombre ?></td>
+            <td><?= $item->apellido ?></td>
+            <td><?= $item->edad ?></td>
+
+        </tr>
+    </tbody>
+<?php endforeach?>   
+</table>
+
+<?php require_once './templates/footer.phtml'?>

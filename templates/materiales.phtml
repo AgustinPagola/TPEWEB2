@@ -1,21 +1,37 @@
 <?php require_once './templates/header.phtml'?>
-<h1>Lista de pedidos</h1>
-<table class="table table-dark">
+<h1>Lista de pedidos:</h1>
+
+<form method="post" action="filtrar" class="form-control form-control-sm">
+<label class="h5">Flitrar por</label>
+    <select name="filtroCliente" id="filtroCliente" >
+    <option ></option>
+    <?php
+    foreach($clientList as $item):?>
+        <option value="<?= $item->id?>"><?= $item->nombre?> <?= $item->apellido?></option>
+        <?php endforeach?>
+
+    </select>
+    <button type="submit" class='btn btn-success ml-auto'>Filtrar</button>  
+</form>  
+
+<table class="table table-dark table-striped table-hover">
     <thead>
-        <th>Id</th>
-        <th>Producto</th>
-        <th>unidades</th>
-        <th>Cliente</th>
+        <th >Producto</th>
+        <th >unidades</th>
+        <th >Precio unitario</th>
+        <th >Monto total</th>
+        <th >Cliente</th>
     </thead>
 
     <?php
     foreach($list as $item):?>
         <tbody>
             <tr>
-                <td><?= $item->id ?></td>
-                <td><?= $item->producto ?></td>
+                <td><a href="product/<?= $item->idProducto?>"><?=  $item->producto?> </a></td>
                 <td><?= $item->unidades ?></td> 
-                <td><a href="client/"><?= $item->cliente ?></a></td> 
+                <td><?= $item->monto?></td> 
+                <td><?= $item->montoTotal?></td> 
+                <td><a href="client/<?= $item->cliente ?>"><?= $item->nombre?> <?= $item->apellido?></a></td> 
             </tr>
         </tbody>
     <?php endforeach?>
